@@ -2,6 +2,12 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
+
+
+
+
+# MANUAL IMPLEMENTAION
+
 def convolve2d(image, kernel):
     m, n = kernel.shape
     y, x = image.shape
@@ -46,3 +52,33 @@ def process_image(image_path):
     display_image(sobel_image, "Sobel Filter")
 
 process_image(r'C:\Users\Manthan\Desktop\CV_DL_Practicals\edge_images\7d35e395-ae41f911.jpg')
+
+
+
+
+
+
+# LIBRARY IMPLEMENTAION
+
+
+# def process_image(image_path):
+#     # implement sobel filter by library
+#     img = cv2.imread(image_path)
+#     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+#     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+#     sobel_x = cv2.Sobel(img_gray, cv2.CV_64F, 1, 0, ksize=3)
+#     sobel_y = cv2.Sobel(img_gray, cv2.CV_64F, 0, 1, ksize=3)
+#     sobel_x = cv2.convertScaleAbs(sobel_x)
+#     sobel_y = cv2.convertScaleAbs(sobel_y)
+#     sobel = cv2.addWeighted(sobel_x, 0.5, sobel_y, 0.5, 0)
+
+#     plt.figure(figsize=(12, 6))
+#     plt.subplot(1, 2, 1)
+#     plt.title('Original Image')
+#     plt.imshow(img_rgb)
+#     plt.axis('off')
+#     plt.subplot(1, 2, 2)
+#     plt.title('Sobel Filter')
+#     plt.imshow(sobel, cmap='gray')
+#     plt.axis('off')
+#     plt.show()
